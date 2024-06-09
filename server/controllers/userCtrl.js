@@ -58,9 +58,38 @@ const userCtrl = {
         const accesstoken = createAccessToken({ id: user.id });
         res.json({ user, accesstoken });
       });
-
-
     } catch (err) {
+      return res.status(500).json({ msg: err.message });
+    }
+  },
+  login: async (req, res) => {
+    try {
+      const { email, password } = req.body;
+
+      const user = await Users.findOne({ email });
+      if (!user) return res.status(400).json({ msg: "User does not exist." });
+
+      const isMatch = await bcrypt.compare(password, user.password);
+      if (!isMatch) return res.status(400).json({ msg: "Incorrect password." });
+
+      const accesstoken = createAccessToken({ id:user._id });
+      const refreshToken = createRefreshToken({ id:user._id });
+
+      res.cookie('refreshtoken', refreshToken, {
+        httpOnly: true,
+        path: '/user/refresh_token',
+      })
+
+      res.json({ accesstoken });
+    } catch (err) {
+      return res.status(500).json({ msg: err.message });
+    }
+  },
+  logout: async (req, res) => {
+    try{
+      res.clearCookie('refreshtoken', {path: '/user/refresh_token'});
+      return res.json({msg: "Logged out"});
+    } catch(err) {
       return res.status(500).json({ msg: err.message });
     }
   },
