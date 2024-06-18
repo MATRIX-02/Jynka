@@ -20,13 +20,12 @@ app.listen(PORT, () => {
 
 //Routes
 app.use('/user', require('./routes/userRouter'));
+app.use('/api', require('./routes/categoryRouter'));
 
 // Connect MongoDB
 const URI = process.env.MONGODB_URL;
 
 mongoose.connect(URI, {
-    useNewUrlParser:true,
-    useUnifiedTopology:true,
 }).then(() => {
     console.log('Connected to MongoDB');
 }).catch(error => {console.log(error)});
