@@ -2,7 +2,7 @@ import axios from 'axios';
 
 
 const api = axios.create({
-  baseURL: process.env.ZYNKA_API,
+  baseURL: "https://zynka.onrender.com/",
 });
 
 export default api;
