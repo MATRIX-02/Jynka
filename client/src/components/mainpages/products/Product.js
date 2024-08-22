@@ -8,12 +8,12 @@ const Product = () => {
   const [isAdmin] = state.userAPI.isAdmin
 
   return (
-    <div className='products'>      
+    <div className='products'>
       {
-        products.map(product => {
-          return <ProductList key={product._id} product={product} isAdmin={isAdmin}/>
+        products && products.map(product => {
+          return <ProductList key={product._id} product={product} isAdmin={isAdmin} />
         })
-      }      
+      }
     </div>
   )
 }
