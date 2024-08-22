@@ -4,7 +4,7 @@ import { MdClose } from 'react-icons/md';
 import { MdOutlineAddShoppingCart } from "react-icons/md";
 import {Link} from 'react-router-dom'
 import { GlobalState } from '../../GlobalState';
-import api from '../../../api';
+import api from '../../api';
 
 const Header = () => {
 

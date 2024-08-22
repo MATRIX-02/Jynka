@@ -2,7 +2,7 @@ import { createContext, useEffect } from "react";
 import ProductAPI from "./api/ProductAPI";
 import { useState } from "react";
 import UserAPI from "./api/UserAPI";
-import api from "../api";
+import api from "./api";
 
 export const GlobalState = createContext()
 
