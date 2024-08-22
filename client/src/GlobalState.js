@@ -12,6 +12,7 @@ export const DataProvider = ({children}) => {
 
     const refreshToken = async () => {
         const res = await api.get('/user/refresh_token')
+        console.log(res)
         setToken(res.data.accesstoken)
     }
 
