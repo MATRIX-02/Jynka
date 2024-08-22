@@ -14,7 +14,7 @@ app.use(fileUpload({
 const PORT = process.env.PORT || 5000;
 
 app.get('/', (req, res) => {
-    res.json({ msg: "This is Example" })
+    res.json({ msg: "Welcome to Zynka Server" })
 })
 
 app.listen(PORT, () => {
