@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import api from '../../api';
 
 const UserAPI = (token) => {
     const [isLogged, setIsLogged] = useState(false);
@@ -10,7 +10,7 @@ const UserAPI = (token) => {
         if (token) {
             const getUser = async () => {
                 try {
-                    const res = await axios.get('/user/infor', {
+                    const res = await api.get('/user/infor', {
                         headers: { Authorization: token }
                     });
 

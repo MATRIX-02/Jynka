@@ -4,7 +4,7 @@ import { MdClose } from 'react-icons/md';
 import { MdOutlineAddShoppingCart } from "react-icons/md";
 import {Link} from 'react-router-dom'
 import { GlobalState } from '../../GlobalState';
-import axios from 'axios';
+import api from '../../../api';
 
 const Header = () => {
 
@@ -15,7 +15,7 @@ const Header = () => {
 
 
     const logoutUser = async() => {
-        await axios.get('/user/logout')
+        await api.get('/user/logout')
 
         localStorage.clear()
         setIsAdmin(false)
