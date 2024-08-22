@@ -1,3 +1,0 @@
-# Zynka
-
-Still working 😉
